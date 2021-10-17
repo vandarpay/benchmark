@@ -1,5 +1,5 @@
 # Vandar Benchmark Wrapper
-Vandar Benchmark Wrapper is a Python wrapper for the [rakyll/hey](https://github.com/rakyll/hey) benchmarking tool that makes it easier to design and use pre-built scenarios for load-testing and determining performance improvements.
+Vandar Benchmark Wrapper is a Python tool for the [rakyll/hey](https://github.com/rakyll/hey) benchmarking tool that makes it easier to design and use pre-built scenarios for load-testing and determining performance improvements.
 
 ## Setup
 You may either clone this project using git or download a zip file containing this project, after extracting it, you need to make sure to follow these two steps:
