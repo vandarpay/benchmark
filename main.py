@@ -53,7 +53,7 @@ def run_scenario(scenario: dict):
             print(f'Making {count} requests with {connections} connections')
         
         if args.testing:
-            count, conncetions = 2, 1
+            count, connections = 2, 1
 
 
         
