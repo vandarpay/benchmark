@@ -44,6 +44,7 @@ In this example:
 5.3. `{ymd}` the current date in `Y_m_d` format
 5.4. `{method}` the method used to send this request (e.g GET)
 6. `contents` HTTP body either in form of an object or array (which is automatically converted to a json encoded object, pass `--no-convert` to stop this from happening)
+6.1. please note that you will need to escape the ' character when using `contents`
 6.1. alternatively, you may have a `contents_file` string instead which determines the path to the body of your content.
 
 Once you have built your scenario in a JSON file, you can run the wrapper using the following command:
