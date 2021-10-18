@@ -64,11 +64,13 @@ def run_scenario(scenario: dict):
 
         total += count
 
-        if args.backoff > 0 and total % args.backoff == 0:
+        if args.backoff > 0 and total % args.backoff == 0 and [count, connections] != collection[-1]:
             wait = args.wait
             if not args.quiet:
                 print(f'Reached a total of {total} requests, waiting for {wait} seconds')
             sleep(wait)
+    if not args.quiet:
+        print(f'Finished with a total of {total} requests')
 
 if __name__ == '__main__':
 
@@ -81,7 +83,7 @@ if __name__ == '__main__':
         parser.add_argument('--verbose', '-v', help="show more technical information", action='store_true')
         parser.add_argument('--dry', help="only print the command instead of running hey", action='store_true')
         parser.add_argument('--testing', help="run the scenario only once with 2 requests and 1 concurrency", action='store_true')
-        parser.add_argument('--backoff', '-b', help="the number of requests after which the program should backoff and wait (the total number of requests in each collection must be below this number and disivable by it for this feature to function correctly)", type=int, default=-1, metavar='[number]')
+        parser.add_argument('--backoff', '-b', help="the number of requests after which the program should backoff and wait (no single collection should be above this number, collections must be able to be divided into batches divisable by this number. e.g if you set it to 600, you should have batches of collections that add up to 600)", type=int, default=-1, metavar='[number]')
         parser.add_argument('--wait', '-w', help="the number of seconds the program should wait before continuing", type=int, default=60, metavar='[number]')
         args = parser.parse_args()
 
@@ -94,8 +96,6 @@ if __name__ == '__main__':
         with open(file, 'r') as file:
             for scenario in json.load(file):
                 run_scenario(scenario)
-            if not args.quiet:
-                print('Finished')
             
     except KeyboardInterrupt:
         exit()
