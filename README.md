@@ -1,4 +1,7 @@
-# Vandar Benchmark Wrapper
+# Vandar Benchmark
+[![GitHub license](https://img.shields.io/github/license/vandarpay/benchmark?style=flat-square)](https://github.com/vandarpay/benchmark/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/vandarpay/benchmark?style=flat-square)](https://github.com/vandarpay/benchmark/issues)
+
 Vandar Benchmark Wrapper is a Python tool for the [rakyll/hey](https://github.com/rakyll/hey) benchmarking tool that makes it easier to design and use pre-built scenarios for load-testing and determining performance improvements.
 
 ## Setup
